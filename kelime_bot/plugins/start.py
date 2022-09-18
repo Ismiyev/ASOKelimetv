@@ -34,10 +34,10 @@ START = """
 
 HELP = """
 **✌️ Komandalar Menyusuna Xoşgəldin.📌**
-/basla - Oyunu Başlatmaq üçün..
-/pas - Cəmi 3 keçid Haqqınız Var.. 
-/reyting - Oyuncular arasındaki Xal məlumatı..
-/dayandir - Oyundan çıxmaq üçün lazımlı olan komandasıdır.. 
+/oyun - Oyunu Başlatmaq üçün..
+/kec - Cəmi 3 keçid Haqqınız Var.. 
+/gtop - Oyuncular arasındaki Xal məlumatı..
+/dayan - Oyundan çıxmaq üçün lazımlı olan komandasıdır.. 
 """
 
 # Komutlar. 
@@ -50,7 +50,7 @@ async def help(bot, message):
   await message.reply_photo("https://i.ibb.co/K6QTywd/images-17.jpg",caption=HELP) 
 
 # Oyunu başlat. 
-@Client.on_message(filters.command("basla")) 
+@Client.on_message(filters.command("oyun")) 
 async def kelimeoyun(c:Client, m:Message):
     global oyun
     aktif = False
@@ -61,7 +61,7 @@ async def kelimeoyun(c:Client, m:Message):
         aktif = False
 
     if aktif:
-        await m.reply("**❗ Oyun Qrupunuzda Artıq Davam Edir ✍🏻 \n Oyunu dayandırmaq üçün yazın /dayandir")
+        await m.reply("**❗ Oyun Qrupunuzda Artıq Davam Edir ✍🏻 \n Oyunu dayandırmaq üçün yazın /dayan")
     else:
         await m.reply(f"**{m.from_user.mention}** Tərəfindən! \nKəlimə Tapma Oyunu Başladı .\n\nBol Şanslar !", reply_markup=kanal)
         
@@ -85,7 +85,7 @@ async def kelimeoyun(c:Client, m:Message):
 🔎 İpucu: 1. {oyun[m.chat.id]["kelime"][0]}
 ✍🏻 Uzunluq : {int(len(kelime_list)/2)} 
 
-✏️ Qarışıq hərflərdən düzgün sözü tapın
+✏️ Qarışıq hərflərdən düzgün sözü tapın @ASOresmi 🇦🇿
         """
         await c.send_message(m.chat.id, text)
         
