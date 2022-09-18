@@ -11,33 +11,33 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 keyboard = InlineKeyboardMarkup([
     [
-        InlineKeyboardButton("➕ Botu Qrupa Əlavə Et", url=f"http://t.me/ASOsozutap_bot?startgroup=new")
+        InlineKeyboardButton("➕ Qrupa Əlavə Et", url=f"http://t.me/TTKSOZOYUN_Bot?startgroup=new")
     ],
     [
-        InlineKeyboardButton("Qrup 🇦🇿", url="https://t.me/ASOresmi"),
-        InlineKeyboardButton("Sahib 🇹🇷", url="https://t.me/ismiyev"),
+        InlineKeyboardButton("**Owner |**", url="https://t.me/STFUZEYA"),
+        InlineKeyboardButton("**TTK Resmi **", url="https://t.me/TTK_teams"),
     ]
 ])
 
 
 START = """
-**• Salam ⚡
+**• Salam 👋
 
-• Mən Qruplar üçün hazırlanmış oyun Botuyam 🎮 
+• Mən Söz Oyun Botuyam 🎮 @TTK_teams ✈️
 
-• Əyləncəli vaxt Keçirmək üçün Mənimlə Oynaya bilərsən ✍🏻 ASOresmi🇦🇿
+• Əyləncəli vaxt Keçirmək üçün Mənimlə Oynaya bilərsən ✍🏻 
 
-• Bot 0 dan Yazılıb.**
+• Oynamaq üçün məni bir qrupa əlavə edib admin etmək lazımdır . 💭**
 
-➤ Məlumat üçün 👉 /komek bas. Komandalar Asand və Rahatdır. 
+➤ Bilgi üçün 👉 /komek Tıklayın. Komutlar Asant və Rahatdır. 
 """
 
 HELP = """
-**✌️ Komandalar Menyusuna Xoşgəldin.📌**
-/oyun - Oyunu Başlatmaq üçün..
+**✌️ Komutlar Menusuna Xoş Gəldiniz.**
+/oyun - Oyunu Başladmaq üçün..
 /kec - Cəmi 3 keçid Haqqınız Var.. 
-/gtop - Oyuncular arasındaki Xal məlumatı..
-/dayan - Oyundan çıxmaq üçün lazımlı olan komandasıdır.. 
+/gtop - Oyuncular arasındaki Xal bilgisi..
+/dayan - Oyundan çıxmaq üçün lazımlı olan komutdur.. 
 """
 
 # Komutlar. 
@@ -63,12 +63,12 @@ async def kelimeoyun(c:Client, m:Message):
     if aktif:
         await m.reply("**❗ Oyun Qrupunuzda Artıq Davam Edir ✍🏻 \n Oyunu dayandırmaq üçün yazın /dayan")
     else:
-        await m.reply(f"**{m.from_user.mention}** Tərəfindən! \nKəlimə Tapma Oyunu Başladı .\n\nBol Şanslar !", reply_markup=kanal)
+        await m.reply(f"**{m.from_user.mention}** Tərəfindən! \nKəlimə Tapma Oyunu Başladı .\n\nBol Şanslar @ASOresmi 🇦🇿!", reply_markup=kanal)
         
         oyun[m.chat.id] = {"kelime":kelime_sec()}
         oyun[m.chat.id]["aktif"] = True
         oyun[m.chat.id]["round"] = 1
-        oyun[m.chat.id]["pass"] = 0
+        oyun[m.chat.id]["kec"] = 0
         oyun[m.chat.id]["oyuncular"] = {}
         
         kelime_list = ""
@@ -81,7 +81,7 @@ async def kelimeoyun(c:Client, m:Message):
         text = f"""
 🎯 Raund : {oyun[m.chat.id]['round']}/60 
 📝 Söz :   <code>{kelime_list}</code>
-💰 Qazanacağınız Xal: 1
+💰 Qazanacağınız Xal: 2
 🔎 İpucu: 1. {oyun[m.chat.id]["kelime"][0]}
 ✍🏻 Uzunluq : {int(len(kelime_list)/2)} 
 
