@@ -8,7 +8,7 @@ from kelime_bot import *
 
 
 
-@Client.on_message(filters.command("pas") & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command("kec") & ~filters.private & ~filters.channel)
 async def passs(c:Client, m:Message):
     global oyun
     
@@ -19,8 +19,8 @@ async def passs(c:Client, m:Message):
         aktif = False
 
     if aktif:
-        if oyun[m.chat.id]["pass"] < 3:
-            oyun[m.chat.id]["pass"] += 1 
+        if oyun[m.chat.id]["kec"] < 3:
+            oyun[m.chat.id]["kec"] += 1 
             await c.send_message(m.chat.id,f"❗ Cəmi 3 keçid Haqqınız Var!\n➡️ Kəlimə Geçişi Çıxtı !\n✏️ Doğru kəlimə : **<code>{oyun[m.chat.id]['kelime']}</code>**")
             
             oyun[m.chat.id]["kelime"] = kelime_sec()
@@ -34,7 +34,7 @@ async def passs(c:Client, m:Message):
                 kelime_list+= harf + " "
             
             text = f"""
-🎯 Raund : {oyun[m.chat.id]['round']}/60 
+🎯 Raund : {oyun[m.chat.id]['round']}/100 
 📝 Kəlimə :   <code>{kelime_list}</code>
 💰 Qazanacağınız Xal : 1
 🔎 İ𝗉𝗎𝖼𝗎 : 1. {oyun[m.chat.id]["kelime"][0]}
@@ -47,4 +47,4 @@ async def passs(c:Client, m:Message):
         else:
             await c.send_message(m.chat.id, f"<code>**❗ Geçiş Düz Saxlanıldı! </code> \n Oyunu diyandırmaq üçün /dayandir yazıb diyandıra Bilərsiniz✍🏻**")
     else:
-        await m.reply(f"❗ **Qrupunuzda aktiv oyun tapılmadı!\n Yeni bir oyuna başlamaq üçün /basla yazabilərsiniz.✍🏻**")
+        await m.reply(f"❗ **Qrupunuzda aktiv oyun tapılmadı!\n Yeni bir oyuna başlamaq üçün /oyun yazabilərsiniz.✍🏻 @ASOresmi 🇦🇿**")
